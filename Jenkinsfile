@@ -3,30 +3,28 @@ pipeline{
     agent any
 
 // uncomment the following lines by removing /* and */ to enable
-  tools{
-       Nodejs'Maven 3.6.3' 
-    }    
+    tools{
+       nodejs 'nodejs' 
+    }
+    
 
     stages{
         stage('build'){
             steps{
                 echo 'this is the build job'
                 sh 'npm install'
-                
             }
         }
         stage('test'){
             steps{
                 echo 'this is the test job'
                 sh 'npm test'
-                
             }
         }
-        stage('Package'){
+        stage('package'){
             steps{
-                echo 'this is the packagejob'
+                echo 'this is the package job'
                 sh 'npm run package'
-                
             }
         }
     }
